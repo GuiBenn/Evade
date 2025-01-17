@@ -140,25 +140,18 @@ function mousePressed() {
 }
 
 function keyPressed() {
-  switch (keyCode) {
-    case LEFT_ARROW:
-      game.player.facingAngle = PI;
-      game.player.vel.x = -game.player.maxSpeed;
-      break;
-    case RIGHT_ARROW:
-      game.player.facingAngle = 0;
-      game.player.vel.x = game.player.maxSpeed;
-      break;
-    case UP_ARROW:
-      game.player.facingAngle = -HALF_PI;
-      game.player.vel.y = -game.player.maxSpeed;
-      break;
-    case DOWN_ARROW:
-      game.player.facingAngle = HALF_PI;
-      game.player.vel.y = game.player.maxSpeed;
-      break;
-    default:
-      break;
+  if (keyCode === LEFT_ARROW) {
+    game.player.facingAngle = PI;
+    game.player.vel.x = -game.player.maxSpeed;
+  } else if (keyCode === RIGHT_ARROW) {
+    game.player.facingAngle = 0;
+    game.player.vel.x = game.player.maxSpeed;
+  } else if (keyCode === UP_ARROW) {
+    game.player.facingAngle = -HALF_PI;
+    game.player.vel.y = -game.player.maxSpeed;
+  } else if (keyCode === DOWN_ARROW) {
+    game.player.facingAngle = HALF_PI;
+    game.player.vel.y = game.player.maxSpeed;
   }
   if (key === 'c') {
     game.player.handleCapture(game);
@@ -170,10 +163,10 @@ function keyPressed() {
     game.state = "menu";
   }
   if (key === 'd') {
-    ArriveBehavior.debug = !ArriveBehavior.debug;
-    AvoidBehavior.debug = !AvoidBehavior.debug;
-    PursueBehavior.debug = !PursueBehavior.debug;
-    FleeBehavior.debug = !FleeBehavior.debug;
+    ArriveBehavior.debug  = !ArriveBehavior.debug;
+    AvoidBehavior.debug   = !AvoidBehavior.debug;
+    PursueBehavior.debug  = !PursueBehavior.debug;
+    FleeBehavior.debug    = !FleeBehavior.debug;
     LeaderFollowBehavior.debug = !LeaderFollowBehavior.debug;
   }
 }
